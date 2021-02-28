@@ -31,12 +31,15 @@ textarea{
 }
 
 .row {
+  width: 100%;
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
+  margin:0%;
 }
 
 .hour {
+  padding-top: 25px;
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
@@ -49,12 +52,12 @@ textarea{
 
 .present {
   background-color: #ff6961;
-  color: white;
+  color: black;
 }
 
 .future {
   background-color: #77dd77;
-  color: white;
+  color: black;
 }
 
 .saveBtn {
@@ -63,7 +66,7 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 30px;
   font-size: 25px;
   color: white;
 }
