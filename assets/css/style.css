@@ -1,6 +1,6 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-size: 10px;
   line-height: 1;
 }
 
@@ -26,23 +26,31 @@ textarea{
 }
 
 .time-block{
-  text-align: center;
+  text-align: left;
   border-radius: 15px;
+}
+#currentDay {
+  background-color: white;
+  margin: 0 auto;
+  top: 0;
+  width: 100%;
+  z-index: 999;
 }
 
 .row {
   width: 100%;
   white-space: pre-wrap;
-  height: 80px;
+  height: 25px;
   border-top: 1px solid white;
   margin:0%;
 }
 
 .hour {
-  padding-top: 25px;
+  text-align: center;
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  padding: 0px;
 }
 
 .past {
@@ -62,16 +70,14 @@ textarea{
 
 .saveBtn {
   border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
   background-color: #06AED5;
-  text-align: center;
-  padding-top: 30px;
-  font-size: 25px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 10px;
   color: white;
 }
 
-.saveBtn i:hover {
+.saveBtn span:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
