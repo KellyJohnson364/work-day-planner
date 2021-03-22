@@ -11,8 +11,8 @@ $(window).scroll(function() {    // this will work when your window scrolled.
 });
 
 // builds the schedule within the container div
-
-for (let i=0; i<25; i++) {
+let dayTitle= $("<div class='title'>Day's Appointments</div>").appendTo(containerEl);
+for (let i=9; i<18; i++) {
 
 let time=moment().startOf('day').add( i, "H")
 let timeSlot=moment(time).format("hA")
@@ -20,7 +20,7 @@ let timeSlot=moment(time).format("hA")
 let rowEl= $('<div class="row"></div>').appendTo(containerEl);
 let hourEl =$('<div class="hour  col-1">' + timeSlot + '</div>')
 let slotEl= $('<input type="text" class="col-9"/>')
-let saveEl= $('<button type="submit" id="'+ i +'" class="glyphicon glyphicon-floppy-disk col-1 saveBtn"></button>')
+let saveEl= $('<button type="submit" id='+ i +' class="glyphicon glyphicon-floppy-disk col-1 saveBtn"></button>')
 
 
 rowEl.append(hourEl, slotEl, saveEl);
@@ -37,7 +37,6 @@ else if(moment().diff(moment(time, 'hours')) > 3600000) {
 else {
   slotEl.addClass('present')
 }
-
 //Checks local storage for stored appointments
 
 let remember = localStorage.getItem(i);
@@ -46,15 +45,46 @@ if (remember) {
   let appt = JSON.parse(remember);
   slotEl.attr('value', appt)
 }
+}
+let weekTitle= $("<div class='title'>Week's Appointments</div>").appendTo(containerEl);
+for (let k=0; k<7; k++) {
+
+  let day=moment().add( k, "d")
+  let daySlot=moment(day).format("ddd")
+  
+  let dayRowEl= $('<div class="row dayRow"></div>').appendTo(containerEl);
+  let dayEl =$('<div class="hour  col-1">' + daySlot + '</div>')
+  let daySlotEl= $('<input type="text" class="col-9"/>')
+  let daySaveEl= $('<button type="submit" id=' + k +' class="glyphicon glyphicon-floppy-disk col-1 saveBtn"></button>')
+  
+  
+  dayRowEl.append(dayEl, daySlotEl, daySaveEl);
+
+  if (moment().diff(moment(day, 'd')) < 0) {
+    daySlotEl.addClass('future')
+  }
+  else if(moment().diff(moment(day, 'd')) > 1) {
+    daySlotEl.addClass('past')
+  } 
+  else {
+    daySlotEl.addClass('present')
+  }
+  let recall = localStorage.getItem(k);
+
+  if (recall) {
+    let appoint = JSON.parse(recall);
+    daySlotEl.attr('value', appoint)
+}}
+
 
 // Store new entry to local storage when the save button is clicked
 
-saveEl.on("click", function(event) {
+$('.saveBtn').on("click", function(event) {
   event.preventDefault();
 let t = $(this).attr('id');
 let entry = this.previousSibling.value
 localStorage.setItem(t, JSON.stringify(entry))
-})}
+})
 
 // function to diplay the correct day at top of page
 

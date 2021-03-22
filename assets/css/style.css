@@ -28,6 +28,8 @@ textarea{
 .time-block{
   text-align: left;
   border-radius: 15px;
+  width: 100%;
+  flex-wrap: wrap
 }
 #currentDay {
   background-color: white;
@@ -36,13 +38,20 @@ textarea{
   width: 100%;
   z-index: 999;
 }
+.title {
+  font-size: 20px;
+  text-align: center;
 
+}
 .row {
   width: 100%;
   white-space: pre-wrap;
   height: 25px;
   border-top: 1px solid white;
   margin:0%;
+}
+.dayRow {
+  height: 50px;
 }
 
 .hour {
@@ -52,6 +61,11 @@ textarea{
   border-top: 1px dashed #000000;
   padding: 0px;
 }
+input {
+  width: 100%;
+  flex-wrap: wrap
+}
+
 
 .past {
   background-color: #757373;
@@ -85,5 +99,12 @@ textarea{
 @media screen and (min-width: 425px) {
 .row {
   height: 40px;
+}
+.title, #currentDay, h3{
+  font-size: 40px;
+  text-align: center;
+}
+.dayRow {
+  height: 100px;
 }
 }
