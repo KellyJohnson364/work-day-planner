@@ -15,10 +15,10 @@ let dayTitle= $("<div class='title'>Day's Appointments</div>").appendTo(containe
 for (let i=9; i<18; i++) {
 
 let time=moment().startOf('day').add( i, "H")
-let timeSlot=moment(time).format("hA")
+let timeSlot=moment(time).format("ha")
 
 let rowEl= $('<div class="row"></div>').appendTo(containerEl);
-let hourEl =$('<div class="hour  col-1">' + timeSlot + '</div>')
+let hourEl =$('<div class="hour  col-1"><strong>' + timeSlot + '</strong></div>')
 let slotEl= $('<input type="text" class="col-9"/>')
 let saveEl= $('<button type="submit" id='+ i +' class="glyphicon glyphicon-floppy-disk col-1 saveBtn"></button>')
 
@@ -53,7 +53,7 @@ for (let k=0; k<7; k++) {
   let daySlot=moment(day).format("ddd")
   
   let dayRowEl= $('<div class="row dayRow"></div>').appendTo(containerEl);
-  let dayEl =$('<div class="hour  col-1">' + daySlot + '</div>')
+  let dayEl =$('<div class="hour  col-1"><strong>' + daySlot + '</strong></div>')
   let daySlotEl= $('<input type="text" class="col-9"/>')
   let daySaveEl= $('<button type="submit" id=' + k +' class="glyphicon glyphicon-floppy-disk col-1 saveBtn"></button>')
   

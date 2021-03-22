@@ -107,4 +107,14 @@ input {
 .dayRow {
   height: 100px;
 }
+.hour {
+  font-size:25px;
+}
+.saveBtn {
+  font-size: 20px;
+}
+.saveBtn:hover {
+  font-size: 40px;
+  transition: all .3s ease-in-out;
+}
 }
