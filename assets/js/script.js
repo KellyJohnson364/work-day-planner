@@ -59,7 +59,7 @@ localStorage.setItem(t, JSON.stringify(entry))
 // function to diplay the correct day at top of page
 
 function displayDay() {
-  let today = moment().format('dddd, MMMM Do');
+  let today = moment().format('dddd, MMMM Do, h:mm a');
   currentDayEl.text(today);
 }
 
@@ -74,3 +74,4 @@ function newHour() {
   }
 }
 setInterval(newHour, 1000);
+setInterval(displayDay, 1000);
