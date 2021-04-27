@@ -12,7 +12,7 @@ $(window).scroll(function() {    // this will work when your window scrolled.
 
 // builds the schedule within the container div
 let dayTitle= $("<div class='title'>Day's Appointments</div>").appendTo(containerEl);
-for (let i=9; i<18; i++) {
+for (let i=0; i<18; i++) {
 
 let time=moment().startOf('day').add( i, "H")
 let timeSlot=moment(time).format("ha")
@@ -49,7 +49,7 @@ if (remember) {
 let weekTitle= $("<div class='title'>Week's Appointments</div>").appendTo(containerEl);
 for (let k=0; k<7; k++) {
 
-  let day=moment().add( k, "d")
+  let day=moment().startOf('week').add( k, "d")
   let daySlot=moment(day).format("ddd")
   
   let dayRowEl= $('<div class="row dayRow"></div>').appendTo(containerEl);
@@ -57,13 +57,14 @@ for (let k=0; k<7; k++) {
   let daySlotEl= $('<input type="text" class="col-9"/>')
   let daySaveEl= $('<button type="submit" id=' + k +' class="glyphicon glyphicon-floppy-disk col-1 saveBtn"></button>')
   
+  console.log((moment().diff(moment(day, 'd'))))
   
   dayRowEl.append(dayEl, daySlotEl, daySaveEl);
-
+  
   if (moment().diff(moment(day, 'd')) < 0) {
     daySlotEl.addClass('future')
   }
-  else if(moment().diff(moment(day, 'd')) > 1) {
+  else if(moment().diff(moment(day, 'd')) > 86400000) {
     daySlotEl.addClass('past')
   } 
   else {
